@@ -4,38 +4,45 @@ package com.example.guest.thebetterweatherapp;
  * Created by Guest on 11/29/16.
  */
 public class Day {
-    private int mDateSeconds;
-    private double mMaxTemp;
-    private double mMinTemp;
-    private double mDayTemp;
+    private long mDateSeconds;
+    private Double mMaxTemp;
+    private Double mMinTemp;
+    private Double mDayTemp;
     private String mWeather;
 
-    public Day(int dateSeconds, double maxTemp, double minTemp, double dayTemp, String weather) {
+    private String mWeatherCategory;
+
+    public Day(long dateSeconds, double maxTemp, double minTemp, double dayTemp, String weather, String weatherCategory) {
         this.mDateSeconds = dateSeconds;
         this.mMaxTemp = maxTemp;
         this.mMinTemp = minTemp;
         this.mDayTemp = dayTemp;
         this.mWeather = weather;
+        this.mWeatherCategory = weatherCategory;
     }
 
-    public int getDateSeconds() {
+    public long getDateSeconds() {
         return mDateSeconds;
     }
 
-    public double getMaxTemp() {
+    public Double getMaxTemp() {
         return mMaxTemp;
     }
 
-    public double getMinTemp() {
+    public Double getMinTemp() {
         return mMinTemp;
     }
 
-    public double getDayTemp() {
+    public Double getDayTemp() {
         return mDayTemp;
     }
 
     public String getWeather() {
         return mWeather;
+    }
+
+    public String getWeatherCategory() {
+        return mWeatherCategory;
     }
 
 }

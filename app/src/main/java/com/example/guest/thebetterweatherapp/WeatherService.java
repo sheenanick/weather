@@ -42,12 +42,13 @@ public class WeatherService {
                 JSONArray forecastJSON = weatherJSON.getJSONArray("list");
                 for (int i = 0; i < forecastJSON.length(); i++) {
                     JSONObject dayJSON = forecastJSON.getJSONObject(i);
-                    int dateSeconds = dayJSON.getInt("dt");
+                    long dateSeconds = dayJSON.getLong("dt");
                     double maxTemp = dayJSON.getJSONObject("temp").getDouble("max");
                     double minTemp = dayJSON.getJSONObject("temp").getDouble("min");
                     double dayTemp = dayJSON.getJSONObject("temp").getDouble("day");
                     String weather = dayJSON.getJSONArray("weather").getJSONObject(0).getString("description");
-                    Day day = new Day(dateSeconds,maxTemp,minTemp,dayTemp,weather);
+                    String weatherCategory = dayJSON.getJSONArray("weather").getJSONObject(0).getString("main");
+                    Day day = new Day(dateSeconds,maxTemp,minTemp,dayTemp,weather, weatherCategory);
                     forecast.add(day);
                 }
             }
