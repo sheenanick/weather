@@ -46,7 +46,6 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
 
     public class ForecastViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.weatherImageView) ImageView mWeatherImageView;
-        @Bind(R.id.descriptionTextView) TextView mDescriptionTextView;
         @Bind(R.id.temperatureTextView) TextView mTemperatureTextView;
         @Bind(R.id.dayTextView) TextView mDayTextView;
 
@@ -59,8 +58,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         }
 
         public void bindForecast(Day day) {
-            mDescriptionTextView.setText(day.getWeather());
-            mTemperatureTextView.setText(day.getDayTemp().toString());
+            mTemperatureTextView.setText(day.getDayTemp().toString() + " °F");
 
             long y = day.getDateSeconds() * 1000;
             Date date = new Date(y);
