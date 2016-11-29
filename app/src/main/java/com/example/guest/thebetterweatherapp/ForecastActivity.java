@@ -1,5 +1,6 @@
 package com.example.guest.thebetterweatherapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +27,9 @@ public class ForecastActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forecast);
         ButterKnife.bind(this);
-        getForecast("portland");
+        Intent intent = getIntent();
+        String location = intent.getStringExtra("location");
+        getForecast(location);
     }
 
     private void getForecast(String location) {
