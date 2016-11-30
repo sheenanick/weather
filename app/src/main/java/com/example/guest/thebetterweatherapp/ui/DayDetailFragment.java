@@ -18,9 +18,6 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class DayDetailFragment extends Fragment {
     @Bind(R.id.weatherImageView) ImageView mWeatherImage;
     @Bind(R.id.dayTextView) TextView mDayLabel;

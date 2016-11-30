@@ -8,9 +8,9 @@ import java.util.Date;
 @Parcel
 public class Day {
     private long mDateSeconds;
-    private Double mMaxTemp;
-    private Double mMinTemp;
-    private Double mDayTemp;
+    private Integer mMaxTemp;
+    private Integer mMinTemp;
+    private Integer mDayTemp;
     private String mWeather;
     private String mWeatherCategory;
     private String mDayString;
@@ -19,9 +19,9 @@ public class Day {
 
     public Day(long dateSeconds, double maxTemp, double minTemp, double dayTemp, String weather, String weatherCategory) {
         this.mDateSeconds = dateSeconds;
-        this.mMaxTemp = maxTemp;
-        this.mMinTemp = minTemp;
-        this.mDayTemp = dayTemp;
+        this.mMaxTemp = (Integer) (int) (maxTemp + 0.5);
+        this.mMinTemp = (Integer) (int) (minTemp + 0.5);
+        this.mDayTemp = (Integer) (int) (dayTemp + 0.5);
         this.mWeather = weather;
         this.mWeatherCategory = weatherCategory;
         Date date = new Date(dateSeconds * 1000);
@@ -34,15 +34,15 @@ public class Day {
         return mDateSeconds;
     }
 
-    public Double getMaxTemp() {
+    public Integer getMaxTemp() {
         return mMaxTemp;
     }
 
-    public Double getMinTemp() {
+    public Integer getMinTemp() {
         return mMinTemp;
     }
 
-    public Double getDayTemp() {
+    public Integer getDayTemp() {
         return mDayTemp;
     }
 

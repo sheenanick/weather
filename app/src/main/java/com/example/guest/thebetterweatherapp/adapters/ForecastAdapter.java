@@ -15,16 +15,11 @@ import com.example.guest.thebetterweatherapp.ui.DayDetailActivity;
 
 import org.parceler.Parcels;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * Created by Guest on 11/29/16.
- */
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastViewHolder> {
     private ArrayList<Day> mForecast = new ArrayList<>();
     private Context mContext;
@@ -80,7 +75,6 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
             }else{
                 mWeatherImageView.setImageResource(R.drawable.storm);
             }
-
         }
 
         @Override
