@@ -1,12 +1,19 @@
-package com.example.guest.thebetterweatherapp;
+package com.example.guest.thebetterweatherapp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.guest.thebetterweatherapp.models.Day;
+import com.example.guest.thebetterweatherapp.R;
+import com.example.guest.thebetterweatherapp.ui.DayDetailActivity;
+
+import org.parceler.Parcels;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,7 +51,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         return mForecast.size();
     }
 
-    public class ForecastViewHolder extends RecyclerView.ViewHolder {
+    public class ForecastViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.weatherImageView) ImageView mWeatherImageView;
         @Bind(R.id.temperatureTextView) TextView mTemperatureTextView;
         @Bind(R.id.dayTextView) TextView mDayTextView;
@@ -55,16 +62,12 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindForecast(Day day) {
             mTemperatureTextView.setText(day.getDayTemp().toString() + " °F");
-
-            long y = day.getDateSeconds() * 1000;
-            Date date = new Date(y);
-            SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
-            String z = formatter.format(date);
-            mDayTextView.setText(z);
+            mDayTextView.setText(day.getDayString());
             String category = day.getWeatherCategory();
             if (category.equals("Clear")) {
                 mWeatherImageView.setImageResource(R.drawable.sun);
@@ -77,6 +80,16 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
             }else{
                 mWeatherImageView.setImageResource(R.drawable.storm);
             }
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, DayDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("forecast", Parcels.wrap(mForecast));
+            mContext.startActivity(intent);
         }
     }
 

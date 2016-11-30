@@ -1,4 +1,4 @@
-package com.example.guest.thebetterweatherapp;
+package com.example.guest.thebetterweatherapp.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+
+import com.example.guest.thebetterweatherapp.models.Day;
+import com.example.guest.thebetterweatherapp.R;
+import com.example.guest.thebetterweatherapp.services.WeatherService;
+import com.example.guest.thebetterweatherapp.adapters.ForecastAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;

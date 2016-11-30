@@ -1,16 +1,21 @@
-package com.example.guest.thebetterweatherapp;
+package com.example.guest.thebetterweatherapp.models;
 
-/**
- * Created by Guest on 11/29/16.
- */
+import org.parceler.Parcel;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+@Parcel
 public class Day {
     private long mDateSeconds;
     private Double mMaxTemp;
     private Double mMinTemp;
     private Double mDayTemp;
     private String mWeather;
-
     private String mWeatherCategory;
+    private String mDayString;
+
+    public Day() {}
 
     public Day(long dateSeconds, double maxTemp, double minTemp, double dayTemp, String weather, String weatherCategory) {
         this.mDateSeconds = dateSeconds;
@@ -19,6 +24,10 @@ public class Day {
         this.mDayTemp = dayTemp;
         this.mWeather = weather;
         this.mWeatherCategory = weatherCategory;
+        Date date = new Date(dateSeconds * 1000);
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
+        String z = formatter.format(date);
+        this.mDayString = z;
     }
 
     public long getDateSeconds() {
@@ -44,5 +53,7 @@ public class Day {
     public String getWeatherCategory() {
         return mWeatherCategory;
     }
+
+    public String getDayString() { return mDayString; }
 
 }
