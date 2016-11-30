@@ -25,6 +25,7 @@ public class ForecastActivity extends AppCompatActivity {
     public static final String TAG = ForecastActivity.class.getSimpleName();
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private ForecastAdapter mAdapter;
+    private String mLocation;
 
     public ArrayList<Day> mForecast = new ArrayList<>();
 
@@ -34,9 +35,9 @@ public class ForecastActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forecast);
         ButterKnife.bind(this);
         Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
-        setTitle(location);
-        getForecast(location);
+        mLocation = intent.getStringExtra("location");
+        setTitle(mLocation);
+        getForecast(mLocation);
     }
 
     private void getForecast(String location) {
@@ -55,7 +56,7 @@ public class ForecastActivity extends AppCompatActivity {
                 ForecastActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mAdapter = new ForecastAdapter(getApplicationContext(), mForecast);
+                        mAdapter = new ForecastAdapter(getApplicationContext(), mForecast, mLocation);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager =
                                 new LinearLayoutManager(ForecastActivity.this);

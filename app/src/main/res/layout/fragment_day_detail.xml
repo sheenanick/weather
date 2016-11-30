@@ -10,67 +10,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary">
 
-        <ImageView
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_gravity="center"
-            android:id="@+id/weatherImageView"
-            android:src="@drawable/moderaterain"
-            android:scaleType="centerCrop" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:paddingTop="20dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Monday"
-                android:id="@+id/dayTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textSize="20sp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="55 F"
-                android:id="@+id/maxTempTextView"
-                android:layout_alignTop="@+id/dayTextView"
-                android:layout_toLeftOf="@+id/minTempTextView"
-                android:layout_toStartOf="@+id/minTempTextView"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="45 F"
-                android:id="@+id/minTempTextView"
-                android:layout_alignTop="@+id/dayTextView"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/colorAccent"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Moderate Rain"
-                android:id="@+id/descriptionTextView"
-                android:layout_below="@+id/dayTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textStyle="italic" />
-        </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -83,6 +22,76 @@
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
                 android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@android:color/white"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="29dp">
+
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_gravity="left"
+                    android:id="@+id/weatherImageView"
+                    android:src="@drawable/moderaterain"
+                    android:scaleType="centerCrop"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monday"
+                    android:id="@+id/dayTextView"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:layout_marginTop="22dp"
+                    android:layout_below="@+id/weatherImageView"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hi: 55 °F"
+                    android:id="@+id/maxTempTextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/descriptionTextView"
+                    android:layout_toLeftOf="@+id/dayTextView"
+                    android:layout_toStartOf="@+id/dayTextView"
+                    android:layout_marginTop="33dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Low: 45 °F"
+                    android:id="@+id/minTempTextView"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/maxTempTextView"
+                    android:layout_alignLeft="@+id/maxTempTextView"
+                    android:layout_alignStart="@+id/maxTempTextView"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Moderate Rain"
+                    android:id="@+id/descriptionTextView"
+                    android:textStyle="italic"
+                    android:layout_below="@+id/dayTextView"
+                    android:layout_centerHorizontal="true" />
+            </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>

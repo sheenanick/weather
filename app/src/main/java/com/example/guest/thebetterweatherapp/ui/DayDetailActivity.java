@@ -1,5 +1,6 @@
 package com.example.guest.thebetterweatherapp.ui;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,5 +33,8 @@ public class DayDetailActivity extends AppCompatActivity {
         adapterViewPager = new DayPagerAdapter(getSupportFragmentManager(), mForecast);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
+        Intent intent = getIntent();
+        String location = intent.getStringExtra("location");
+        setTitle(location);
     }
 }

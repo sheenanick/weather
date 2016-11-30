@@ -63,8 +63,8 @@ public class DayDetailFragment extends Fragment {
 
         mDayLabel.setText(mDay.getDayString());
         mDescriptionLabel.setText(mDay.getWeather());
-        mMaxTempLabel.setText(mDay.getMaxTemp().toString());
-        mMinTempLabel.setText(mDay.getMinTemp().toString());
+        mMaxTempLabel.setText("Hi: " + mDay.getMaxTemp().toString() + "°F");
+        mMinTempLabel.setText("Low: " + mDay.getMinTemp().toString() + "°F");
         return view;
     }
 

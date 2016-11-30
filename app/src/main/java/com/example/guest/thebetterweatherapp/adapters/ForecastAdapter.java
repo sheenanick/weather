@@ -23,10 +23,12 @@ import butterknife.ButterKnife;
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastViewHolder> {
     private ArrayList<Day> mForecast = new ArrayList<>();
     private Context mContext;
+    private String mLocation;
 
-    public ForecastAdapter(Context context, ArrayList<Day> forecast) {
+    public ForecastAdapter(Context context, ArrayList<Day> forecast, String location) {
         mContext = context;
         mForecast = forecast;
+        mLocation = location;
     }
 
     @Override
@@ -83,6 +85,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
             Intent intent = new Intent(mContext, DayDetailActivity.class);
             intent.putExtra("position", itemPosition);
             intent.putExtra("forecast", Parcels.wrap(mForecast));
+            intent.putExtra("location", mLocation);
             mContext.startActivity(intent);
         }
     }
