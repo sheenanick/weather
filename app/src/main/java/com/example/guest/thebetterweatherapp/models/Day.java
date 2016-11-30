@@ -14,10 +14,14 @@ public class Day {
     private String mWeather;
     private String mWeatherCategory;
     private String mDayString;
+    private Integer mClouds;
+    private Integer mHumidity;
+    private String mLocation;
 
     public Day() {}
 
-    public Day(long dateSeconds, double maxTemp, double minTemp, double dayTemp, String weather, String weatherCategory) {
+    public Day(String location, long dateSeconds, double maxTemp, double minTemp, double dayTemp, String weather, String weatherCategory, int humidity, int clouds) {
+        this.mLocation = location;
         this.mDateSeconds = dateSeconds;
         this.mMaxTemp = (Integer) (int) (maxTemp + 0.5);
         this.mMinTemp = (Integer) (int) (minTemp + 0.5);
@@ -28,7 +32,11 @@ public class Day {
         SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
         String z = formatter.format(date);
         this.mDayString = z;
+        this.mHumidity = humidity;
+        this.mClouds = clouds;
     }
+
+    public String getLocation() { return mLocation; }
 
     public long getDateSeconds() {
         return mDateSeconds;
@@ -55,5 +63,9 @@ public class Day {
     }
 
     public String getDayString() { return mDayString; }
+
+    public Integer getHumidity() { return mHumidity; }
+
+    public Integer getClouds() { return mClouds; }
 
 }

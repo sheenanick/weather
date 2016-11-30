@@ -4,12 +4,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.DayDetailFragment">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -17,7 +11,6 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Save Weather"
                 android:id="@+id/saveWeatherButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
@@ -27,14 +20,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:background="@android:color/white"
-                android:paddingTop="20dp"
+                android:paddingTop="50dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="20dp"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="29dp">
+                android:layout_alignParentTop="true"
+                android:layout_above="@+id/saveWeatherButton">
 
                 <ImageView
                     android:layout_width="160dp"
@@ -65,11 +58,11 @@
                     android:id="@+id/maxTempTextView"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
-                    android:layout_below="@+id/descriptionTextView"
-                    android:layout_toLeftOf="@+id/dayTextView"
-                    android:layout_toStartOf="@+id/dayTextView"
                     android:layout_marginTop="33dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_below="@+id/descriptionTextView"
+                    android:layout_toLeftOf="@+id/weatherImageView"
+                    android:layout_toStartOf="@+id/weatherImageView" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -91,7 +84,30 @@
                     android:textStyle="italic"
                     android:layout_below="@+id/dayTextView"
                     android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Humidity: 70%"
+                    android:id="@+id/humidityTextView"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_alignTop="@+id/minTempTextView"
+                    android:layout_alignLeft="@+id/cloudsTextView"
+                    android:layout_alignStart="@+id/cloudsTextView" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clouds: 90%"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:id="@+id/cloudsTextView"
+                    android:layout_above="@+id/humidityTextView"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="52dp"
+                    android:layout_marginEnd="52dp" />
             </RelativeLayout>
         </RelativeLayout>
-    </LinearLayout>
 </FrameLayout>

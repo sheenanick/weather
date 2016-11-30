@@ -36,7 +36,7 @@ public class ForecastActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Intent intent = getIntent();
         mLocation = intent.getStringExtra("location");
-        setTitle(mLocation);
+        setTitle(" ");
         getForecast(mLocation);
     }
 
@@ -51,7 +51,6 @@ public class ForecastActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 mForecast = weatherService.processResults(response);
-                Log.d(TAG,mForecast.toString());
 
                 ForecastActivity.this.runOnUiThread(new Runnable() {
                     @Override
@@ -62,6 +61,7 @@ public class ForecastActivity extends AppCompatActivity {
                                 new LinearLayoutManager(ForecastActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
+                        setTitle(mForecast.get(0).getLocation());
                     }
                 });
             }

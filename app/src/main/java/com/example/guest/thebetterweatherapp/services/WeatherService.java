@@ -42,6 +42,7 @@ public class WeatherService {
             String jsonData = response.body().string();
             if (response.isSuccessful()) {
                 JSONObject weatherJSON = new JSONObject(jsonData);
+                String location = weatherJSON.getJSONObject("city").getString("name");
                 JSONArray forecastJSON = weatherJSON.getJSONArray("list");
                 for (int i = 0; i < forecastJSON.length(); i++) {
                     JSONObject dayJSON = forecastJSON.getJSONObject(i);
@@ -49,9 +50,11 @@ public class WeatherService {
                     double maxTemp = dayJSON.getJSONObject("temp").getDouble("max");
                     double minTemp = dayJSON.getJSONObject("temp").getDouble("min");
                     double dayTemp = dayJSON.getJSONObject("temp").getDouble("day");
+                    int humidity = dayJSON.getInt("humidity");
+                    int clouds = dayJSON.getInt("clouds");
                     String weather = dayJSON.getJSONArray("weather").getJSONObject(0).getString("description");
                     String weatherCategory = dayJSON.getJSONArray("weather").getJSONObject(0).getString("main");
-                    Day day = new Day(dateSeconds,maxTemp,minTemp,dayTemp,weather, weatherCategory);
+                    Day day = new Day(location, dateSeconds,maxTemp,minTemp,dayTemp,weather, weatherCategory, humidity, clouds);
                     forecast.add(day);
                 }
             }

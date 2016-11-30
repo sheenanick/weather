@@ -24,6 +24,8 @@ public class DayDetailFragment extends Fragment {
     @Bind(R.id.descriptionTextView) TextView mDescriptionLabel;
     @Bind(R.id.maxTempTextView) TextView mMaxTempLabel;
     @Bind(R.id.minTempTextView) TextView mMinTempLabel;
+    @Bind(R.id.cloudsTextView) TextView mCloudsLabel;
+    @Bind(R.id.humidityTextView) TextView mHumidityLabel;
     @Bind(R.id.saveWeatherButton) Button mSaveWeatherButton;
 
     private Day mDay;
@@ -65,6 +67,8 @@ public class DayDetailFragment extends Fragment {
         mDescriptionLabel.setText(mDay.getWeather());
         mMaxTempLabel.setText("Hi: " + mDay.getMaxTemp().toString() + "°F");
         mMinTempLabel.setText("Low: " + mDay.getMinTemp().toString() + "°F");
+        mCloudsLabel.setText("Clouds: " + mDay.getClouds().toString() + "%");
+        mHumidityLabel.setText("Humidity: " + mDay.getHumidity().toString() + "%");
         return view;
     }
 

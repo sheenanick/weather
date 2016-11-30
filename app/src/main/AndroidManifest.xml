@@ -19,8 +19,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ForecastActivity" />
-        <activity android:name=".ui.DayDetailActivity"></activity>
+        <activity android:name=".ui.ForecastActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.guest.thebetterweatherapp.ui.MainActivity">
+            </meta-data>
+        </activity>
+        <activity android:name=".ui.DayDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.guest.thebetterweatherapp.ui.MainActivity">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>

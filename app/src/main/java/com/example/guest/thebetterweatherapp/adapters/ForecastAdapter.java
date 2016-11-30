@@ -85,7 +85,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
             Intent intent = new Intent(mContext, DayDetailActivity.class);
             intent.putExtra("position", itemPosition);
             intent.putExtra("forecast", Parcels.wrap(mForecast));
-            intent.putExtra("location", mLocation);
+            intent.putExtra("location", mForecast.get(0).getLocation());
             mContext.startActivity(intent);
         }
     }
