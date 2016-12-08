@@ -18,15 +18,18 @@ You will need [Android Studio](https://developer.android.com/studio/index.html) 
 
 ## Setup
 
+Requesting an API Key:
 * Sign up to get an API key for [The Open Weather API](http://openweathermap.org/appid).
+
+In Android Studio:
 * Create a file called `gradle.properties` in the root directory of the project.
 * Save the API key in this new file, setting it equal to `ApiKey = "<your key goes here>"` .
 
 ## Running / Development
 
-* Create a virtual device in Android studio and run the application.
+* Create a virtual device in Android Studio and run the application.
 <br>- OR -
-* Connect an android device to your computer and run the application on the device.
+* Connect an Android device to your computer and run the application on the device.
 
 ## Support and Contact Details
 
